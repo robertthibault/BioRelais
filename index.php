@@ -7,7 +7,7 @@ session_start()?>
 		<meta charset="utf-8" />
 		<title>EBioRelai</title>
 		<style type="text/css">
-			@import url(styles/EasyFood.css);
+			@import url(styles/BioRelais.css);
 		</style>
 	</head>
 	<body>
