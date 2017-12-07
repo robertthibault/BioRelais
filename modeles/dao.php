@@ -65,3 +65,13 @@ class DBConnex extends PDO{
 		return $this->exec($sql) ;
 	}
 }
+
+Class UtilisateurDAO{
+
+	public static function verification(utilisateur $utilisateur){
+	 		$sql = "select * from UTILISATEUR where ADRESSEMAIL = '" . $utilisateur->getLogin() . "' and mdp = '" . md5($utilisateur->getMdp()) . "'";
+	 		$utilisateur = DBConnex::getInstance()->queryFetchFirstRow($sql);
+	 		return $utilisateur;
+	 	}
+
+}
