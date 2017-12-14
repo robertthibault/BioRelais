@@ -15,6 +15,6 @@ session_start()?>
 		<?php
 			include 'controleurs/controleurPrincipal.php';
 		?>
-		
+
 	</body>
 </html>
