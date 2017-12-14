@@ -13,11 +13,11 @@ if(isset($_GET['menuPrincipal'])){
 }
 else{
 	if(!isset($_SESSION['menuPrincipal'])){
-		$_SESSION['menuPrincipal']="equipeC";
+		$_SESSION['menuPrincipal']="Connexion";
 	}
 }
 
-/*
+
 $messageErreurConnexion ='';
 if(isset($_POST['login'] , $_POST['mdp'])){
     $unUtilisateur = new Utilisateur($_POST['login'] , $_POST['mdp']);
@@ -29,10 +29,10 @@ if(isset($_POST['login'] , $_POST['mdp'])){
         $messageErreurConnexion = 'Login ou mot de passe incorrect !';
     }
 }
-*/
+
 
 $menuPrincipal = new Menu("menuPrincipal");
-                 
+
 /*
 if(isset($_SESSION['identification']) && $_SESSION['identification']){
     $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("equipe",
@@ -45,7 +45,7 @@ if(isset($_SESSION['identification']) && $_SESSION['identification']){
 */
 
 if(isset($_SESSION['identification']) && $_SESSION['identification']){
-    $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/deconnex.png" , "Déconnexion"));
+    $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/deconnex.png" , "Dï¿½connexion"));
 }
 else{
     $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/connex.png" , "Connexion"));
