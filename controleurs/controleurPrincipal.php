@@ -13,7 +13,7 @@ if(isset($_GET['menuPrincipal'])){
 }
 else{
 	if(!isset($_SESSION['menuPrincipal'])){
-		$_SESSION['menuPrincipal']="equipeC";
+		$_SESSION['menuPrincipal']="connexion";
 	}
 }
 
