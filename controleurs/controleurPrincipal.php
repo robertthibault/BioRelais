@@ -19,16 +19,29 @@ else{
 
 
 $messageErreurConnexion ='';
+//$_SESSION['Statut']= 'VIS';
 if(isset($_POST['login'] , $_POST['mdp'])){
     $unUtilisateur = new Utilisateur($_POST['login'] , $_POST['mdp']);
-    $_SESSION['identification'] = utilisateurDAO::verification($unUtilisateur);
-    if($_SESSION['identification']){
-        $_SESSION['menuPrincipal']="equipe";
+    $unUtilisateur->setStatut(UtilisateurDAO::RecupStatut($_POST['login']));
+
+    if(utilisateurDAO::verification($unUtilisateur) && $unUtilisateur->getStatut()=='CLI'){
+      $_SESSION['identification'] = 'Adherent' ;
+      //$_SESSION['Statut'] = 'CLI';
+    }
+    else if(utilisateurDAO::verification($unUtilisateur) && $unUtilisateur->getStatut()=='PRO'){
+          $_SESSION['identification'] = 'Producteurs' ;
+          //$_SESSION['Statut'] = 'PRO';
+    }
+    else if(utilisateurDAO::verification($unUtilisateur) && $unUtilisateur->getStatut()=='DIR'){
+          $_SESSION['identification'] = 'InscriptionClient' ;
+          //$_SESSION['Statut'] = 'DIR';
     }
     else {
         $messageErreurConnexion = 'Login ou mot de passe incorrect !';
+        $_SESSION['identification'] = 'Visiteurs';
     }
 }
+
 
 
 $menuPrincipal = new Menu("menuPrincipal");
@@ -44,12 +57,12 @@ if(isset($_SESSION['identification']) && $_SESSION['identification']){
 }
 */
 
-if(isset($_SESSION['identification']) && $_SESSION['identification']){
-    $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/deconnex.png" , "D�connexion"));
+if(isset($_SESSION['identification']) && $_SESSION['identification']!= 'VIS'){
+    $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/deconnex.png" , "Deconnexion"));
 }
 else{
     $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/connex.png" , "Connexion"));
 }
 
 
-include_once dispatcher::dispatch($_SESSION['menuPrincipal']);
+include_once dispatcher::dispatch($_SESSION['identification']);

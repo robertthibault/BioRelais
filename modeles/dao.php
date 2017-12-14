@@ -74,4 +74,9 @@ Class UtilisateurDAO{
 	 		return $utilisateur;
 	 	}
 
+		public static function RecupStatut($login){
+			$sql = "Select STATUT from UTILISATEUR where ADRESSEMAIL = '".$login."';";
+			return DBConnex::getInstance()->queryFetchFirstRow($sql);
+		}
+
 }
