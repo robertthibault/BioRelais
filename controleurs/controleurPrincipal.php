@@ -13,11 +13,11 @@ if(isset($_GET['menuPrincipal'])){
 }
 else{
 	if(!isset($_SESSION['menuPrincipal'])){
-		$_SESSION['menuPrincipal']="equipeC";
+		$_SESSION['menuPrincipal']="Connexion";
 	}
 }
 
-/*
+
 $messageErreurConnexion ='';
 if(isset($_POST['login'] , $_POST['mdp'])){
     $unUtilisateur = new Utilisateur($_POST['login'] , $_POST['mdp']);
@@ -29,7 +29,7 @@ if(isset($_POST['login'] , $_POST['mdp'])){
         $messageErreurConnexion = 'Login ou mot de passe incorrect !';
     }
 }
-*/
+
 
 $menuPrincipal = new Menu("menuPrincipal");
                  
