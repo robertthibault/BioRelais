@@ -32,7 +32,7 @@ if(isset($_POST['login'] , $_POST['mdp'])){
 */
 
 $menuPrincipal = new Menu("menuPrincipal");
-                 
+
 /*
 if(isset($_SESSION['identification']) && $_SESSION['identification']){
     $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("equipe",
@@ -45,7 +45,7 @@ if(isset($_SESSION['identification']) && $_SESSION['identification']){
 */
 
 if(isset($_SESSION['identification']) && $_SESSION['identification']){
-    $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/deconnex.png" , "Déconnexion"));
+    $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/deconnex.png" , "Dï¿½connexion"));
 }
 else{
     $menuPrincipal->ajouterComposant($menuPrincipal->creerItemImage("connexion", "images/connex.png" , "Connexion"));
